@@ -35,6 +35,32 @@ public:
     };
 };
 
+class civicR : public transport_IF
+{
+public:
+    civicR()
+    {
+        cout << "transportation using civicR" << endl;
+    }
+    void deliver() override
+    {
+        cout << "deliver by civicR" << endl;
+    };
+};
+
+class KiaSonet : public transport_IF
+{
+public:
+    KiaSonet()
+    {
+        cout << "transportation using KiaSonet" << endl;
+    }
+    void deliver() override
+    {
+        cout << "deliver by KiaSonet" << endl;
+    };
+};
+
 // factory method
 class create_vehicle
 {
@@ -63,5 +89,23 @@ public:
     transport_IF *factory_method()
     {
         return new Ship(); // return Ship
+    };
+};
+
+class create_civicR : public create_vehicle
+{
+public:
+    transport_IF *factory_method()
+    {
+        return new civicR(); // return Ship
+    };
+};
+
+class create_KiaSonet : public create_vehicle
+{
+public:
+    transport_IF *factory_method()
+    {
+        return new KiaSonet(); // return Ship
     };
 };
